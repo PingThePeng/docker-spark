@@ -54,7 +54,7 @@ spec:
         - containerPort: 6066
 ---
 apiVersion: apps/v1
-kind: DaemonSet
+kind: Deployment
 replicas: 3
 metadata:
   name: spark-worker
