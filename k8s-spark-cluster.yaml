@@ -55,7 +55,6 @@ spec:
 ---
 apiVersion: apps/v1
 kind: DaemonSet
-replicas: 3
 metadata:
   name: spark-worker
   labels:
