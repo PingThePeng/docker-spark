@@ -96,11 +96,11 @@ It will also setup a headless service so spark clients can be reachable from the
 
 Then to use `spark-shell` issue
 
-`kubectl run spark-base --rm -it --labels="app=spark-client" --image bde2020/spark-base:2.4.4-hadoop2.7 -- bash ./spark/bin/spark-shell --master spark://spark-master:7077 --conf spark.driver.host=spark-client`
+`kubectl run spark-base --rm -it --labels="app=spark-client" --image registry.cn-hangzhou.aliyuncs.com/aimyth/spark-base:2.4.4-hadoop2.7 -- bash ./spark/bin/spark-shell --master spark://spark-master:7077 --conf spark.driver.host=spark-client`
 
 To use `spark-submit` issue for example
 
-`kubectl run spark-base --rm -it --labels="app=spark-client" --image bde2020/spark-base:2.4.4-hadoop2.7 -- bash ./spark/bin/spark-submit --class CLASS_TO_RUN --master spark://spark-master:7077 --deploy-mode client --conf spark.driver.host=spark-client URL_TO_YOUR_APP`
+`kubectl run spark-base --rm -it --labels="app=spark-client" --image registry.cn-hangzhou.aliyuncs.com/aimyth/spark-base:2.4.4-hadoop2.7 -- bash ./spark/bin/spark-submit --class CLASS_TO_RUN --master spark://spark-master:7077 --deploy-mode client --conf spark.driver.host=spark-client URL_TO_YOUR_APP`
 
 You can use your own image packed with Spark and your application but when deployed it must be reachable from the workers.
 One way to achieve this is by creating a headless service for your pod and then use `--conf spark.driver.host=YOUR_HEADLESS_SERVICE` whenever you submit your application.
